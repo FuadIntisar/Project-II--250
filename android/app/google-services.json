@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "747320285370",
+    "project_id": "smart-attendance-system-bfde2",
+    "storage_bucket": "smart-attendance-system-bfde2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747320285370:android:33f2e7b5be65fe0422ca83",
+        "android_client_info": {
+          "package_name": "com.example.attendance_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGr0Fx-q3cVkO6qYFlMvAA1Pfn_IJ8kI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

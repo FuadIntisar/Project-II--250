@@ -1,0 +1,31 @@
+// EXAMPLE ONLY — copy into Firebase console > Firestore Database > Rules
+// once you've added real Firebase Authentication for "Sir".
+//
+// This example assumes the logged-in sir's account has a custom claim
+// or a matching doc that marks them as a teacher. Adjust to match
+// however you implement sir's login for real.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Everyone (sir + students) can read courses, students, attendance.
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false; // default deny
+    }
+
+    // Only an authenticated "sir" can write courses / students / attendance.
+    match /courses/{courseId} {
+      allow write: if request.auth != null; // tighten with a custom claim in production
+
+      match /students/{studentId} {
+        allow write: if request.auth != null;
+      }
+
+      match /attendance/{dateId} {
+        allow write: if request.auth != null;
+      }
+    }
+  }
+}
