@@ -112,7 +112,7 @@ class _RosterScreenState extends State<RosterScreen> {
                           child: ListTile(
                             onTap: () => _renameDialog(s),
                             title: Text(
-                              s.name.isEmpty ? 'No name (tap for name)' : s.name,
+                              s.name.isEmpty ? 'No name' : s.name,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontStyle: s.name.isEmpty ? FontStyle.italic : FontStyle.normal,
