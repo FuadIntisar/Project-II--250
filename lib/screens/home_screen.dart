@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../theme.dart';
-import '../services/firestore_service.dart';
 import 'sir_login_screen.dart';
 import 'sir_dashboard_screen.dart';
 import 'student_pick_screen.dart';
@@ -9,22 +8,15 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   Future<void> _goSir(BuildContext context) async {
-    final service = FirestoreService();
-    final account = await service.getSirAccount();
-    if (!context.mounted) return;
-    if (account == null) {
+    final loggedIn = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(builder: (_) => const SirLoginScreen()),
+    );
+    if (loggedIn == true && context.mounted) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const SirLoginScreen(isSetup: true)),
+        MaterialPageRoute(builder: (_) => const SirDashboardScreen()),
       );
-    } else {
-      final loggedIn = await Navigator.push<bool>(
-        context,
-        MaterialPageRoute(builder: (_) => SirLoginScreen(isSetup: false, account: account)),
-      );
-      if (loggedIn == true && context.mounted) {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => const SirDashboardScreen()));
-      }
     }
   }
 
