@@ -1,4 +1,4 @@
-# Hajiri Khata — Attendance App (Flutter)
+# Attendance App (Flutter)
 
 A simple attendance app:
 - **Sir**: logs in, creates courses, adds students, marks present/absent, views history.
