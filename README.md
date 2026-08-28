@@ -59,13 +59,4 @@ build/app/outputs/flutter-apk/app-release.apk
 ```
 Share that file directly (WhatsApp, Drive, etc.) — no Play Store needed for testing.
 
-## Notes
 
-- The "Sir" login here is a simple username/password check stored in Firestore —
-  it is **not secure**, it's meant to get the app working quickly. Before real use,
-  replace it with Firebase Authentication (email/password or phone OTP).
-- Students identify themselves by course + roll number, with no password — anyone
-  who knows a roll number can view (not edit) that student's attendance. Add
-  Firebase Authentication if you need real per-student login.
-- Only the "Sir" screens ever write attendance data; student screens are read-only
-  by design — there's simply no write button in student's flow.
